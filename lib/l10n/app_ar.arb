@@ -1,0 +1,24 @@
+{
+  "search": "بحث",
+  "home": "الرئيسية",
+  "news": "تطبيق الأخبار",
+  "go": "اذهب إلى الرئيسية",
+  "them": "المظهر",
+  "dark": "داكن",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "viewAll": "عرض الكل",
+  "goodMorning": "صباح الخير، إليك بعض الأخبار",
+    "light": "فاتح",
+     "arabic": "العربية",
+     "general": "عام",
+      "noNewsAvailable": "لا توجد أخبار متاحة",
+       "business": "الأعمال",
+       "entertainment": "الترفيه",
+       "health": "الصحة",
+         "sport": "رياضة",
+
+       "science": "العلوم",
+       "technology": "التكنولوجيا"
+
+}
