@@ -54,6 +54,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noNewsAvailable => 'لا توجد أخبار متاحة';
 
   @override
+  String get viewFullArticle => 'عرض المقال كاملًا';
+
+  @override
   String get business => 'الأعمال';
 
   @override

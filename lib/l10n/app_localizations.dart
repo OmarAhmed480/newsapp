@@ -188,6 +188,12 @@ abstract class AppLocalizations {
   /// **'No news available'**
   String get noNewsAvailable;
 
+  /// No description provided for @viewFullArticle.
+  ///
+  /// In en, this message translates to:
+  /// **'View Full Article'**
+  String get viewFullArticle;
+
   /// No description provided for @business.
   ///
   /// In en, this message translates to:

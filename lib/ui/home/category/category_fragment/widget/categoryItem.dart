@@ -11,7 +11,6 @@ class CategoryItem extends StatelessWidget {
   final bool isLanguage;
 
   final bool isRtl;
-  final VoidCallback onTap;
 
   const CategoryItem({
     super.key,
@@ -20,7 +19,6 @@ class CategoryItem extends StatelessWidget {
     required this.buttonTitle,
     required this.isDark,
     required this.isRtl,
-    required this.onTap,
     required this.isLanguage
   });
 
@@ -52,9 +50,8 @@ class CategoryItem extends StatelessWidget {
                       : AppStyle.medium14whiteColor.copyWith(fontSize: 24.sp),
                 ),
 
-                GestureDetector(
-                  onTap: onTap,
-                  child: Container(
+
+             Container(
                     width: 130.w,
                     height: 42.h,
                     decoration: BoxDecoration(
@@ -103,7 +100,7 @@ class CategoryItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
+
               ],
             ),
           ],

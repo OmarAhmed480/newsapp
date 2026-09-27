@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/utils/app_Style.dart';
 import 'package:newsapp/utils/app_colors.dart';
 
-import '../../../../api/model/sources/source.dart';
+import '../../../../../api/model/sources/source.dart';
 
 class SourceName extends StatelessWidget {
   const SourceName({

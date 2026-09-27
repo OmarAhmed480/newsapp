@@ -4,11 +4,13 @@ import 'package:newsapp/l10n/app_localizations.dart';
 import 'package:newsapp/utils/app_Style.dart';
 import 'package:newsapp/utils/app_colors.dart';
 
+import '../../../model/categoryModel.dart';
+
 class NewsAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDark;
-  final VoidCallback? onSearchPressed;
-
-  const NewsAppBar({super.key, required this.isDark, this.onSearchPressed});
+  final VoidCallback onSearchPressed;
+  final CategoryModel ?isSelectedCategory;
+ NewsAppBar({super.key, required this.isDark, this.isSelectedCategory,required this.onSearchPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +28,8 @@ class NewsAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
       centerTitle: true,
-      title: Text(
-        AppLocalizations.of(context)!.home,
+      title: Text(isSelectedCategory==null?
+        AppLocalizations.of(context)!.home:isSelectedCategory!.title,
         style: isDark
             ? AppStyle.medium14whiteColor.copyWith(fontSize: 20.sp)
             : AppStyle.medium14blackColor.copyWith(fontSize: 20.sp),

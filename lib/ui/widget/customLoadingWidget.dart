@@ -5,7 +5,7 @@ class CustomLoadingWidget extends StatelessWidget {
 
   const CustomLoadingWidget({
     super.key,
-    required this.isDark,
+    this.isDark = false,
   });
 
   @override

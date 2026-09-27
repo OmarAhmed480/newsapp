@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import '../../../../../../utils/app_Style.dart';
+import '../../../../../../utils/app_colors.dart';
+import '../../../../../widget/customLoadingWidget.dart';
 
-import '../../../../../utils/app_Style.dart';
-import '../../../../../utils/app_colors.dart';
-import '../../../../widget/customLoadingWidget.dart';
 
 
 class NewsItem extends StatelessWidget {
 var news;
   final bool isDark;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   final double cardHeight;
   final double cardWidth;
@@ -74,45 +74,53 @@ var news;
             ),
 
             SizedBox(height: 10.h),
-
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                news.title ?? "",
-                style: isDark
-                    ? AppStyle.bold16whiteColor
-                    : AppStyle.bold16blackColor,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  news.title ?? "",
+                  style: isDark
+                      ? AppStyle.bold16whiteColor
+                      : AppStyle.bold16blackColor,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
               ),
             ),
 
             const Spacer(),
 
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "by : ${news.author ?? ""}",
-                    style: AppStyle.medium12lightGray,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                  ),
-                ),
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Padding(
+                padding: REdgeInsets.symmetric(vertical: 4.h),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        "by : ${news.author ?? ""}",
+                        style: AppStyle.medium12lightGray,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                      ),
+                    ),
 
-                SizedBox(width: 8.w),
+                    SizedBox(width: 8.w),
 
-                Text(
-                  news.publishedAt == null
-                      ? ""
-                      : timeago.format(
-                    DateTime.parse(news.publishedAt!),
-                  ),
-                  style: AppStyle.medium12lightGray,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
+                    Text(
+                      news.publishedAt == null
+                          ? ""
+                          : timeago.format(
+                        DateTime.parse(news.publishedAt!),
+                      ),
+                      style: AppStyle.medium12lightGray,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ],
         ),

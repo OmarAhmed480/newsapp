@@ -9,10 +9,11 @@ import 'api_constants.dart';
 
 class ApiManager {
   // https://newsapi.org/v2/top-headlines/sources?apiKey=88a951ab596546afb6887cff9ada085d
-  static Future<SourceResponse> getSources() async {
+  static Future<SourceResponse> getSources({required String categoryId}) async {
     try {
       Uri url = Uri.https(ApiConstants.baseUrl, ApiEndpoints.sourceApi, {
         "apiKey": ApiConstants.apiKey,
+        "category":categoryId,
       });
       var response = await http.get(url);
       return SourceResponse.fromJson(jsonDecode(response.body));
@@ -36,4 +37,19 @@ class ApiManager {
     }
 
   }
+
+
+  static Future<NewsRespons> getNewsBySearchIn({required String title}) async {
+    try {
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiEndpoints.everything, {
+        "apiKey": ApiEndpoints.apiKey,
+        "q":title,
+      });
+      var response = await http.get(url);
+      return NewsRespons.fromJson(jsonDecode(response.body));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 }

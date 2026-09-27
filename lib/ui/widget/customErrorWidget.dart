@@ -10,7 +10,7 @@ class CustomErrorWidget extends StatelessWidget {
     super.key,
     required this.error,
     required this.onRetry,
-    required this.isDark,
+    this.isDark = false,
   });
 
   @override

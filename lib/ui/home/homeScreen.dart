@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/api/api_manager.dart';
 import 'package:newsapp/ui/home/widget/newsAppBar.dart';
 import 'package:newsapp/utils/app_colors.dart';
 import 'package:provider/provider.dart';
+import '../../model/categoryModel.dart';
 import '../../provider/app_language_provider.dart';
 import '../../provider/app_them_provider.dart';
 import '../../drawer/homeDrawer.dart';
-import 'category_details/newsWidget/newsWidget.dart';
-import 'category_details/source_tab.dart';
-import 'category_details/sources/category_details.dart';
-import 'category_fragment/category_fragment.dart';
+import '../../search/news_search_ delegate.dart';
+import 'category/category_details/category_details.dart';
+import 'category/category_fragment/category_fragment.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -19,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
+  CategoryModel? isSelectedCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -29,25 +28,37 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: isDark ? AppColors.blackColor : AppColors.whiteColor,
       appBar: NewsAppBar(
+        isSelectedCategory: isSelectedCategory,
         isDark: isDark,
-        onSearchPressed: () {
-          // TODO: Search
-        },
+        onSearchPressed: () =>
+            showSearch(context: context, delegate: NewsSearchDelegate()),
       ),
 
-      drawer:HomeDrawer(
+      drawer: HomeDrawer(
         isDark: isDark,
         themeProvider: themProvider,
         languageProvider: languageProvider,
         onGoPressed: () {
-          // TODO: Go action
-
+          // TODO:Go Home Drawer
+          goHomeDrawer();
         },
       ),
 
-      body:
-     // CategoryFragment(),
-      CategoryDetails(),
+      body: isSelectedCategory == null
+          ? CategoryFragment(onCategoryItemClick: onCategoryItemClick)
+          : CategoryDetails(category: isSelectedCategory!),
     );
+  }
+
+  void onCategoryItemClick({required CategoryModel newCategory}) {
+    isSelectedCategory = newCategory;
+    setState(() {});
+  }
+
+  void goHomeDrawer() {
+    setState(() {
+      isSelectedCategory = null;
+      Navigator.pop(context);
+    });
   }
 }
