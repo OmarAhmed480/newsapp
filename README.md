@@ -1,22 +1,28 @@
-# 🎉 News App
+# 📰 News App
 
-## 📰 News App
+A modern and responsive **Flutter News Application** integrated with **News API**, allowing users to browse, search, and read news articles through a clean and user-friendly interface.
 
-**News App** is a modern and responsive Flutter news application powered by **News API**, designed to help users **browse, discover, search, and read news articles** through a clean and user-friendly interface.
+Developed by **Eng. Omar Ahmed Ali** with a focus on **Clean Architecture, SOLID Principles, Clean Code, API Integration, and State Management**.
 
-The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project.
+---
 
 ## ✨ Features
 
-### 🏠 Home
+* 🚀 Splash Screen
+* 🏠 Browse latest news
+* 📰 Browse news by categories
+* 🔎 Search news by keywords
+* 📖 View detailed news articles
+* 🌐 Open complete articles using WebView
+* 🌍 English & Arabic localization
+* ↔️ RTL support
+* 🌓 Light & Dark Mode
+* 💾 Persist language and theme preferences
+* 🖼️ Cached network images
+* ⏱️ Relative publication time
+* 🛡️ API & network error handling
 
-* Browse the latest news
-* Browse news by categories
-* View news sources
-* Display news articles
-* Responsive and clean UI
-
-### 📰 News Categories
+### 📰 Categories
 
 * General
 * Business
@@ -26,156 +32,83 @@ The application was developed by **Eng. Omar Ahmed Ali** as a Flutter project.
 * Health
 * Science
 
-### 🔎 Search
+---
 
-* Search for news articles
-* Search by keywords
-* Display matching news results
+## 🏗️ Architecture & State Management
 
-### 📖 News Details
+The project follows **Clean Architecture** and **SOLID Principles**, with separation of responsibilities, reusable components, and clean code practices.
 
-* View complete news article information
-* Display article title
-* Display article image
-* Display article description
-* Display author
-* Display publication time
-* Open news articles using WebView
+### BLoC / Cubit
 
-### 🌐 Localization
+Used to manage:
 
-* English
-* Arabic
-* RTL support
-* Switch application language
-* Save selected language using **SharedPreferences**
+* News states
+* Category states
+* Search states
+* API loading, success, and error states
 
-### 🌓 Theme
+### Provider
 
-* Light Mode
-* Dark Mode
-* Save selected theme using **SharedPreferences**
-* Theme management using **Provider**
+Used to manage:
 
-### ⏱️ Published Time
+* Application language
+* Light & Dark theme
 
-* Display relative publication time
-* Example: `2 hours ago`
-* Powered by **Timeago**
+### SharedPreferences
 
-### 🖼️ Network Images
-
-* Load news images from the API
-* Cached network images
-* Loading state
-* Error handling for unavailable images
-
-## 🏗️ Architecture & Development Practices
-
-The application was developed using clean and maintainable coding practices.
-
-* **Clean Architecture**
-* **SOLID Principles**
-* **Provider State Management**
-* **BLoC / Cubit**
-* Separation of Concerns
-* Reusable Components
-* Responsive UI
-* API Integration
-* Local Data Persistence
-* Localization
-* Error Handling
-* Clean Code
-
-## 🛠️ Built With
-
-* **Flutter & Dart**
-* **Dio** — API requests and network communication
-* **Provider** — State Management
-* **Flutter BLoC** — State Management
-* **SharedPreferences** — Local data persistence
-* **Flutter ScreenUtil** — Responsive UI
-* **Flutter SVG** — SVG assets
-* **CachedNetworkImage** — Network image caching
-* **WebView Flutter** — Display web articles
-* **Flutter Localizations** — Localization
-* **Intl** — Internationalization and formatting
-* **Timeago** — Relative date and time formatting
-
-## 🌐 API Integration
-
-The application uses **News API** to retrieve news data through **Dio**.
-
-The API is used for:
-
-* Fetching news sources
-* Fetching news by category
-* Fetching news articles
-* Searching for news
-* Retrieving article information
-
-## 📱 News Categories
-
-The application supports the following categories:
-
-* **General**
-* **Business**
-* **Sports**
-* **Technology**
-* **Entertainment**
-* **Health**
-* **Science**
-
-## 💾 Local Storage
-
-**SharedPreferences** is used to save user preferences locally, including:
+Used to persist:
 
 * Selected language
 * Selected theme
 
-The saved preferences are restored when the application starts again.
+---
 
-## 🎨 UI & Responsive Design
+## 🌐 API & Error Handling
 
-The application uses **Flutter ScreenUtil** to provide a responsive user interface across different screen sizes.
+The application uses **Dio** for News API integration.
 
-The project also uses:
+* API requests and responses
+* News and search endpoints
+* Network communication
+* `DioException` handling
+* API and network error handling
+* Request/response logging using **Pretty Dio Logger**
 
-* Custom reusable widgets
-* SVG assets
-* Cached network images
-* Light and Dark themes
-* Arabic RTL support
+The **HTTP package** was also used during development to learn and understand HTTP requests and API communication.
+
+---
+
+## 🛠️ Technologies
+
+* **Flutter & Dart**
+* **Dio**
+* **HTTP**
+* **BLoC / Cubit**
+* **Provider**
+* **SharedPreferences**
+* **Clean Architecture**
+* **SOLID Principles**
+* **Clean Code**
+* **Flutter ScreenUtil**
+* **CachedNetworkImage**
+* **WebView Flutter**
+* **Flutter Localizations**
+* **Intl**
+* **Timeago**
+* **Pretty Dio Logger**
+
+---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-Make sure you have:
+### Requirements
 
 * Flutter SDK
 * Dart SDK
 * Android Studio or VS Code
 * Android Emulator or Physical Device
-* News API key
+* News API Key
 
-Navigate to the project:
-
-```bash
-cd news_app
-```
-
-Install dependencies:
-
-```bash
-flutter pub get
-```
-
-Run the application:
-
-```bash
-flutter run
-```
 
 ## 👨‍💻 Developer
 
@@ -183,6 +116,10 @@ flutter run
 
 **Flutter / Mobile Application Developer**
 
-Built with **Flutter & Dart**, integrated with **News API**, and developed using **Clean Architecture, SOLID Principles, Provider, and BLoC State Management**.
+Built with **Flutter & Dart** using modern development practices, including **Clean Architecture, SOLID Principles, Clean Code, API Integration, State Management, Localization, Responsive UI, and structured Error Handling**.
 
-#Flutter #Dart #NewsApp #NewsAPI #FlutterDeveloper #MobileDevelopment #CleanArchitecture #SOLID #Provider #BLoC #Dio #SharedPreferences #FlutterProjects
+---
+
+## 🏷️ Tags
+
+#Flutter #Dart #NewsApp #NewsAPI #FlutterDeveloper #MobileDevelopment #CleanArchitecture #CleanCode #SOLID #Provider #BLoC #Cubit #Dio #DioException #HTTP #SharedPreferences #WebView #FlutterProjects
