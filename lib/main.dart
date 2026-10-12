@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/provider/app_language_provider.dart';
 import 'package:newsapp/provider/app_them_provider.dart';
 import 'package:newsapp/ui/home/homeScreen.dart';
 import 'package:newsapp/ui/splashScreen/splash_Screen.dart';
 import 'package:newsapp/utils/app_routes.dart';
+import 'package:newsapp/utils/my_bloc_observer.dart';
 import 'package:provider/provider.dart';
-
 import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(MultiProvider(
+  Bloc.observer = MyBlocObserver();
+  runApp(
+    MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => AppLanguageProvider(),),
-        ChangeNotifierProvider(create: (context) => AppThemProvider(),),
-
+        ChangeNotifierProvider(create: (context) => AppLanguageProvider()),
+        ChangeNotifierProvider(create: (context) => AppThemProvider()),
       ],
-      child: const MyApp()));
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -34,6 +38,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     initSharedPreferences();
   }
+
   @override
   Widget build(BuildContext context) {
     var languageProvider = Provider.of<AppLanguageProvider>(context);
@@ -43,13 +48,11 @@ class _MyAppState extends State<MyApp> {
       designSize: Size(393, 852),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-
         initialRoute: AppRoutes.splashRouteName,
         routes: {
-         AppRoutes.splashRouteName: (context) => SplashScreen(),
+          AppRoutes.splashRouteName: (context) => SplashScreen(),
           AppRoutes.homeRouteName: (context) => HomeScreen(),
         },
-
         locale: Locale(languageProvider.appLanguage),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
@@ -57,13 +60,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
- Future<void>  initSharedPreferences() async {
+  Future<void> initSharedPreferences() async {
+    var themProvider = Provider.of<AppThemProvider>(context, listen: false);
+    var languageProvider = Provider.of<AppLanguageProvider>(context, listen: false,);
 
-    var themProvider  =Provider.of<AppThemProvider>(context,listen: false);
-    var languageProvider= Provider.of<AppLanguageProvider>(context,listen: false);
-
-   await themProvider.loadThem();
-   await languageProvider.loadLanguage();
-
- }
+    await themProvider.loadThem();
+    await languageProvider.loadLanguage();
+  }
 }

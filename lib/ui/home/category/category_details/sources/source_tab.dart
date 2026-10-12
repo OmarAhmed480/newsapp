@@ -22,7 +22,11 @@ class _SourceTabState extends State<SourceTab> {
   Widget build(BuildContext context) {
     var themeProvider = Provider.of<AppThemProvider>(context);
     var isDark = themeProvider.isDark();
-
+    if (widget.sourceList.isEmpty) {
+      return const Center(
+        child: Text("No sources available"),
+      );
+    }
     return DefaultTabController(
       length: widget.sourceList.length,
       child: Column(

@@ -4,7 +4,7 @@ import 'package:newsapp/l10n/app_localizations.dart';
 import 'package:newsapp/utils/app_Style.dart';
 import 'package:newsapp/utils/app_colors.dart';
 
-import '../../../model/categoryModel.dart';
+import '../../../api/model/categoryModel.dart';
 
 class NewsAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDark;

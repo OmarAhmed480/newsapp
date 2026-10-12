@@ -2,11 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/l10n/app_localizations.dart';
-import 'package:newsapp/model/news/Articles.dart';
 import 'package:newsapp/ui/widget/customLoadingWidget.dart';
 import 'package:newsapp/utils/app_Style.dart';
 import 'package:newsapp/utils/app_colors.dart';
 
+import '../../../../../../api/model/news/Articles.dart';
 import 'generalbutton.dart';
 
 class ArticlePreviewBottomSheet extends StatelessWidget {

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsapp/l10n/app_localizations.dart';
-import 'package:newsapp/model/news/Articles.dart';
 import 'package:newsapp/ui/home/category/category_details/newsWidget/widget/newsItem.dart';
 import 'package:newsapp/utils/app_Style.dart';
+
+import '../../../../../../api/model/news/Articles.dart';
 
 class NewsListWidget extends StatelessWidget {
   final List<Articles> newsList;

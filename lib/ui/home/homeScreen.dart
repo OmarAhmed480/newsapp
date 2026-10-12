@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/ui/home/widget/newsAppBar.dart';
 import 'package:newsapp/utils/app_colors.dart';
 import 'package:provider/provider.dart';
-import '../../model/categoryModel.dart';
+import '../../api/model/categoryModel.dart';
 import '../../provider/app_language_provider.dart';
 import '../../provider/app_them_provider.dart';
 import '../../drawer/homeDrawer.dart';

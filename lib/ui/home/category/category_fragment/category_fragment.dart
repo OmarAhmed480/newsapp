@@ -4,7 +4,7 @@ import 'package:newsapp/l10n/app_localizations.dart';
 import 'package:newsapp/ui/home/category/category_fragment/widget/categoryItem.dart';
 import 'package:newsapp/utils/app_Assets.dart';
 import 'package:provider/provider.dart';
-import '../../../../model/categoryModel.dart';
+import '../../../../api/model/categoryModel.dart';
 import '../../../../provider/app_language_provider.dart';
 import '../../../../provider/app_them_provider.dart';
 import '../../../../utils/app_Style.dart';

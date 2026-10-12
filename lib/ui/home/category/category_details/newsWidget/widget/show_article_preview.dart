@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/model/news/Articles.dart';
 import 'package:newsapp/ui/home/category/category_details/newsWidget/widget/articlePreviewBottomSheet.dart';
+import '../../../../../../api/model/news/Articles.dart';
 
 void showArticlePreview({
   required BuildContext context,

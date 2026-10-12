@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:newsapp/api/api_endpoints.dart';
 import 'package:newsapp/api/model/sources/source_response.dart';
-import 'package:newsapp/model/news/News_response.dart';
 
-import 'api_constants.dart';
+import '../api_constants.dart';
+import '../model/news/News_response.dart';
 
 class ApiManager {
   // https://newsapi.org/v2/top-headlines/sources?apiKey=88a951ab596546afb6887cff9ada085d
