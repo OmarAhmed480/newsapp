@@ -20,7 +20,8 @@ class CategoryDetails extends StatefulWidget {
 }
 
 class _CategoryDetailsState extends State<CategoryDetails> {
-  SourceViewModel viewModel = SourceViewModel(sourceRepository: injectSourceRepository() );
+  SourceViewModel viewModel = SourceViewModel(sourceRepositoryDio: injectSourceRepository(), );
+  // SourceViewModel viewModel = SourceViewModel(sourceRepositoryRetrofit: injectSourceRepositoryRetrofit());
 
   @override
   Widget build(BuildContext context) {

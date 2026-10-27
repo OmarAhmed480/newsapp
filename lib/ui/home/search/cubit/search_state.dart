@@ -1,5 +1,5 @@
 
-import '../../api/model/news/Articles.dart';
+import '../../../../api/model/news/Articles.dart';
 
 
 

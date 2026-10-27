@@ -1,5 +1,6 @@
 import 'package:newsapp/api/model/sources/source.dart';
 
+
 abstract class SourceState {}
 
 class SourceInitialState extends SourceState {}
@@ -13,7 +14,8 @@ class SourceErrorState extends SourceState {
 }
 
 class SourceSuccessState extends SourceState {
-  List<Sources> sourceList;
+ List<Sources> sourceList;
+  // List<SourceRetrofit> sourceList;
 
   SourceSuccessState({required this.sourceList});
 }

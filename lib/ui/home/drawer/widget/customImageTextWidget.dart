@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/app_Style.dart';
+import '../../../../utils/app_Style.dart';
+
 
 class CustomImageTextWidget extends StatelessWidget {
   final String image;

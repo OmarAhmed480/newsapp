@@ -23,7 +23,7 @@ class AppThemProvider extends ChangeNotifier {
 
  Future<void> loadThem() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    var theme = await prefs.getString('theme');
+    var theme = prefs.getString('theme');
     if (theme == "dark") {
       appTheme = ThemeMode.dark;
     } else if (theme == "light") {

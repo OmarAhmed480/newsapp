@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsapp/drawer/widget/drawerSettingsWidget.dart';
 import 'package:newsapp/l10n/app_localizations.dart';
+import 'package:newsapp/ui/home/drawer/widget/customImageTextWidget.dart';
+import 'package:newsapp/ui/home/drawer/widget/drawerSettingsWidget.dart';
 import 'package:newsapp/utils/app_Assets.dart';
 import 'package:newsapp/utils/app_colors.dart';
 import 'package:newsapp/utils/app_Style.dart';
 import 'package:newsapp/utils/app_string.dart';
-import 'package:newsapp/drawer/widget/customImageTextWidget.dart';
 
 class HomeDrawer extends StatelessWidget {
   final bool isDark;

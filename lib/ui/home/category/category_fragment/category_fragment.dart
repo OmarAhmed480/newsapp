@@ -13,7 +13,7 @@ import '../../../../utils/app_Style.dart';
 typedef OnCategoryItemClick = void Function({required CategoryModel newCategory});
 
 class CategoryFragment extends StatefulWidget {
-  CategoryFragment({super.key, required this.onCategoryItemClick});
+  const CategoryFragment({super.key, required this.onCategoryItemClick});
 
   final OnCategoryItemClick onCategoryItemClick;
   @override

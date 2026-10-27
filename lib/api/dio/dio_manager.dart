@@ -5,29 +5,24 @@ import '../api_constants.dart';
 import '../model/news/News_response.dart';
 import '../model/sources/source_response.dart';
 import 'api_error_handler.dart';
-
+// @singleton
 class DioManager {
-  // TODO: Add News API base URL and API key.
-  // TODO: Keep the API key in a safe place and don't upload it to GitHub.
-
+  DioManager._();
+  static DioManager? _instance;
+  static DioManager getInstance() {
+    _instance ??= DioManager._();
+    return _instance!;
+  }
   static final Dio dio =
       Dio(
           BaseOptions(
-            // TODO: Set the base URL for News API.
             baseUrl: "https://newsapi.org",
-
-            // TODO: Add the API key to every request.
             queryParameters: {"apiKey": ApiConstants.apiKey},
-
-            // TODO: Set the maximum time for receiving the response.
             receiveTimeout: Duration(seconds: 3),
-
-            // TODO: Set the maximum time for connecting to the server.
             connectTimeout: Duration(seconds: 5),
           ),
         )
         ..interceptors.add(
-          // TODO: Log API requests and responses only in debug mode.
           PrettyDioLogger(
             requestBody: true,
             responseHeader: true,
@@ -48,18 +43,18 @@ class DioManager {
       );
       // TODO: Convert API response to model.
       return SourceResponse.fromJson(sourcesResponse.data);
-    } on DioException catch (e){
+    } on DioException catch (e) {
       // TODO: Handle API errors.
-     throw ApiErrorHandler.handleDioException(e);
+      throw ApiErrorHandler.handleDioException(e);
     }
   }
 
   //   https://newsapi.org/v2/everything?q=bitcoin&apiKey=88a951ab596546afb6887cff9ada085d
   // TODO: Get news by source.
- Future<NewsRespons> getNewsBySourcesId({
-   required int pageSize,
-   required int page,
-   required String sourceId,
+  Future<NewsRespons> getNewsBySourcesId({
+    required int pageSize,
+    required int page,
+    required String sourceId,
   }) async {
     try {
       var sourceResponse = await dio.get(
@@ -67,12 +62,12 @@ class DioManager {
         queryParameters: {
           "pageSize": pageSize,
           "page": page,
-          "sources": sourceId
+          "sources": sourceId,
         },
       );
       // TODO: Convert API response to model.
       return NewsRespons.fromJson(sourceResponse.data);
-    } on DioException catch (e){
+    } on DioException catch (e) {
       // TODO: Handle API errors.
       throw ApiErrorHandler.handleDioException(e);
     }
@@ -88,7 +83,7 @@ class DioManager {
 
       // TODO: Convert API response to model.
       return NewsRespons.fromJson(sourceResponse.data);
-    } on DioException catch (e){
+    } on DioException catch (e) {
       // TODO: Handle API errors.
       throw ApiErrorHandler.handleDioException(e);
     }

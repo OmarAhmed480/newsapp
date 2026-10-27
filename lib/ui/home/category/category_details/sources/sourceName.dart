@@ -12,7 +12,8 @@ class SourceName extends StatelessWidget {
     required this.isDark,
   });
 
-  final Sources source;
+  // final  SourceRetrofit source;
+ final Sources source;
   final bool isSelected;
   final bool isDark;
 

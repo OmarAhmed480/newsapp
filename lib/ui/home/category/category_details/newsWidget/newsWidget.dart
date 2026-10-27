@@ -14,9 +14,11 @@ import 'cubit/news_view_model.dart';
 import 'news_web_view.dart';
 
 class NewsWidget extends StatefulWidget {
-  NewsWidget({super.key, required this.source});
+  const NewsWidget({super.key, required this.source});
 
   final Sources source;
+  // final SourceRetrofit source;
+
 
   @override
   State<NewsWidget> createState() => _NewsWidgetState();
@@ -53,6 +55,12 @@ class _NewsWidgetState extends State<NewsWidget> {
           if (state is NewsSuccessState) {
             var newsResponse = state.articlesList!;
             return NewsListWidget(
+              onLoadMore: () {
+                viewModel.getNewsBySourceId(
+                  sourceId: widget.source.id!,
+                  loadMore: true,
+                );
+              },
               newsList: newsResponse,
               isDark: isDark,
               onNewsTap: (index) {

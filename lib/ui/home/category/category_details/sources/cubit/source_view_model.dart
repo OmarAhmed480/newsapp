@@ -1,23 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp/api/http/http_manager.dart';
-import 'package:newsapp/api/dio/dio_manager.dart';
-import 'package:newsapp/data/repositore/source/data_source/remote/imp/source_remote_datasource_imp.dart';
-import 'package:newsapp/data/repositore/source/data_source/remote/source_remote_datasource.dart';
+import 'package:injectable/injectable.dart';
 import 'package:newsapp/data/repositore/source/repository/source_repository.dart';
 import 'package:newsapp/ui/home/category/category_details/sources/cubit/source_state.dart';
 
-import '../../../../../../data/repositore/source/repository/imp/source_repository_imp.dart';
-
+@injectable
 class SourceViewModel extends Cubit<SourceState> {
-  late SourceRepository sourceRepository;
-
-  SourceViewModel({required this.sourceRepository})
+   late SourceRepository sourceRepositoryDio;
+  // SourceRepositoryRetrofit sourceRepositoryRetrofit;
+  SourceViewModel({required this.sourceRepositoryDio})
     : super(SourceLoadingState());
 
   Future<void> getSource({required String categoryId}) async {
     try {
       emit(SourceLoadingState());
-      var source = await sourceRepository.getSources(categoryId);
+      var source = await sourceRepositoryDio.getSources(categoryId);
       if (source.status == "error") {
         emit(SourceErrorState(errorMessage: source.message!));
         return;

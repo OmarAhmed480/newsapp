@@ -5,6 +5,7 @@
 /// category : "general"
 /// language : "en"
 /// country : "us"
+library;
 
 class Sources {
   Sources({

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_ce_flutter/hive_ce_flutter.dart';
 import 'package:newsapp/provider/app_language_provider.dart';
 import 'package:newsapp/provider/app_them_provider.dart';
 import 'package:newsapp/ui/home/homeScreen.dart';
@@ -10,8 +11,11 @@ import 'package:newsapp/utils/my_bloc_observer.dart';
 import 'package:provider/provider.dart';
 import 'l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
+  // configureDependencies();
+  await Hive.initFlutter();
   runApp(
     MultiProvider(
       providers: [
@@ -62,7 +66,10 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> initSharedPreferences() async {
     var themProvider = Provider.of<AppThemProvider>(context, listen: false);
-    var languageProvider = Provider.of<AppLanguageProvider>(context, listen: false,);
+    var languageProvider = Provider.of<AppLanguageProvider>(
+      context,
+      listen: false,
+    );
 
     await themProvider.loadThem();
     await languageProvider.loadLanguage();

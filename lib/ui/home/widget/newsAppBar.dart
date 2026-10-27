@@ -10,7 +10,7 @@ class NewsAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isDark;
   final VoidCallback onSearchPressed;
   final CategoryModel ?isSelectedCategory;
- NewsAppBar({super.key, required this.isDark, this.isSelectedCategory,required this.onSearchPressed});
+ const NewsAppBar({super.key, required this.isDark, this.isSelectedCategory,required this.onSearchPressed});
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ class NewsViewModel extends Cubit<NewsState> {
   NewsViewModel({required this.newsRepository}) : super(NewsLoadingState());
 
   int currentPage = 1;
-  final int pageSize = 20;
+  final int pageSize = 30;
   bool isLoadingMore = false;
   bool hasMore = true;
 

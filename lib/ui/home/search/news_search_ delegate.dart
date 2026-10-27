@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsapp/search/widget/news_search_result_widget.dart';
-import 'package:newsapp/search/widget/searchThemeFunction.dart';
+import 'package:newsapp/ui/home/search/widget/news_search_result_widget.dart';
+import 'package:newsapp/ui/home/search/widget/searchThemeFunction.dart';
+
 import 'package:newsapp/utils/app_colors.dart';
 import 'package:provider/provider.dart';
-import '../provider/app_them_provider.dart';
+import '../../../provider/app_them_provider.dart';
 
 class NewsSearchDelegate extends SearchDelegate {
   @override

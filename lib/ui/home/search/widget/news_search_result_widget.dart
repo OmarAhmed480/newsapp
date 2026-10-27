@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newsapp/search/cubit/search_view_model.dart';
 import 'package:newsapp/ui/home/category/category_details/newsWidget/news_web_view.dart';
 import 'package:newsapp/ui/home/category/category_details/newsWidget/widget/newsListWidget.dart';
 import 'package:newsapp/ui/widget/customErrorWidget.dart';
-import '../../di/di.dart';
-import '../../ui/home/category/category_details/newsWidget/widget/show_article_preview.dart';
-import '../../ui/widget/customLoadingWidget.dart';
+import '../../../../di/di.dart';
+import '../../../widget/customLoadingWidget.dart';
+import '../../category/category_details/newsWidget/widget/show_article_preview.dart';
 import '../cubit/search_state.dart';
+import '../cubit/search_view_model.dart';
 
 class NewsSearchResultWidget extends StatefulWidget {
   final String query;
   final bool isDark;
 
-  NewsSearchResultWidget({
+  const NewsSearchResultWidget({
     super.key,
     required this.query,
     required this.isDark,
@@ -34,11 +34,7 @@ class _NewsSearchResultWidgetState extends State<NewsSearchResultWidget> {
     viewModel.getNewsBySearchIn(title: widget.query);
   }
 
-  @override
-  void dispose() {
-    viewModel.close();
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +44,7 @@ class _NewsSearchResultWidgetState extends State<NewsSearchResultWidget> {
         if (state is SearchSuccessState) {
           final newsResponse = state.articlesList ?? [];
           return NewsListWidget(
+
             newsList: newsResponse,
             isDark: widget.isDark,
             onNewsTap: (index) {
